@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<title>3D-元素周期表</title>
+<script src="js/three.min.js" ></script>
+<script src="js/tween.min.js" ></script>
+<script src="js/TrackballControls.js" ></script>
+<script src="js/CSS3DRenderer.js" ></script>
+<style>
+	.wrap {
+		margin: 50px;
+		perspective: 800px;
+		perspective-origin: 70% 100px;
+	}
+	.cube {
+		margin: 0 auto;
+		position: relative;
+		width: 200px;
+		transform-style: preserve-3d;
+	}
+	.cube div {
+		position: absolute;
+		width: 200px;
+		height: 200px;
+	}
+	.back {
+		transform: translateZ(-100px) rotateY(180deg);
+		background: #f0f0f0;
+		opacity: 0.8;
+	}
+	.right {
+		transform: rotateY(-270deg) translateX(100px);
+		transform-origin: top right;
+		background: #4c0d0d;
+		opacity: 0.8;
+	}
+	.left {
+		transform: rotateY(270deg) translateX(-100px);
+		transform-origin: center left;
+		background: #609092;
+		opacity: 0.8;
+	}
+	.top {
+		transform: rotateX(-90deg) translateY(-100px);
+		transform-origin: top center;
+		background: #7d6565;
+		opacity: 0.8;
+	}
+	.bottom {
+		transform: rotateX(90deg) translateY(100px);
+		transform-origin: bottom center;
+		background: #804646;
+		opacity: 0.8;
+	}
+	.front {
+		transform: translateZ(100px);
+    	background: #d47e7e;
+    	opacity: 0.8;
+	}
+	/*水平旋转*/
+	@keyframes spin {
+		from { transform: rotateY(0); }
+		to { transform: rotateY(360deg); }
+	}
+	.cube {
+		animation: spin 5s infinite linear;
+	}
+	/*垂直旋转*/
+	/*@keyframes spin-vertical {
+		from { transform: rotateX(0); }
+		to { transform: rotateX(-360deg); }
+	}
+
+	.cube-wrap.vertical .cube {
+		margin: 0 auto; 
+
+		transform-origin: 0 100px;
+		animation: spin-vertical 5s infinite linear;
+	}
+
+	.cube-wrap.vertical .top {
+		transform: rotateX(-270deg) translateY(-100px);
+	}
+
+	.cube-wrap.vertical .back {
+		transform: translateZ(-100px) rotateX(180deg);
+	}
+
+	.cube-wrap.vertical .bottom {
+		transform: rotateX(-90deg) translateY(100px);
+	}*/
+</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="cube">
+		<div class="front">前</div>
+		<div class="back">后</div>
+		<div class="top">上</div>
+		<div class="bottom">下</div>
+		<div class="left">左</div>
+		<div class="right">右</div>
+	</div>
+</div>
+</body>
