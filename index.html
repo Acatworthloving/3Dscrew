@@ -107,9 +107,6 @@ button:active {
 
 <div id="container"></div>
 <div id="info">3D-元素周期表</div>
-<div id="menu">
-<button id="helix">螺旋</button>
-</div>
 
 <script>
 
@@ -234,7 +231,7 @@ var table = [
 	"Uuo", "Ununoctium", "(294)", 18, 7
 ];
 
-var camera, scene, renderer;
+var camera, scene, renderer;//渲染器（Renderer）、场景（Scene）、照相机（Canmer）
 var controls;
 
 var objects = [];
@@ -366,12 +363,9 @@ function init() {
 	controls.minDistance = 500;
 	controls.maxDistance = 6000;
 	controls.addEventListener( 'change', render );
-	var button = document.getElementById( 'helix' );
-	button.addEventListener( 'click', function ( event ) {
 
-		transform( targets.helix, 2000 );
+	transform( targets.helix, 100 );
 
-	}, false );
 	window.addEventListener( 'resize', onWindowResize, false );
 
 }
@@ -426,7 +420,9 @@ function animate() {
 }
 
 function render() {
+
 	renderer.render( scene, camera );
+
 }
 
 </script>
